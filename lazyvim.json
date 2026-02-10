@@ -1,8 +1,10 @@
 {
   "extras": [
     "lazyvim.plugins.extras.editor.leap",
+    "lazyvim.plugins.extras.editor.telescope",
     "lazyvim.plugins.extras.lang.clangd",
-    "lazyvim.plugins.extras.lang.cmake"
+    "lazyvim.plugins.extras.lang.cmake",
+    "lazyvim.plugins.extras.util.chezmoi"
   ],
   "install_version": 8,
   "news": {
