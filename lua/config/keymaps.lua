@@ -10,9 +10,10 @@ vim.keymap.set("n", "<leader>rc", api.connect, { desc = "Connect to remote host"
 vim.keymap.set("n", "<leader>rd", api.disconnect, { desc = "Disconnect from remote host" })
 vim.keymap.set("n", "<leader>re", api.edit, { desc = "Edit remote hosts" })
 
--- (optional) Override telescope find_files and live_grep to make dynamic based on if connected to host
+-- (optional) Override telescope find_files to make dynamic based on if connected to host
 local builtin = require("telescope.builtin")
 local connections = require("remote-sshfs.connections")
+
 vim.keymap.set("n", "<leader>ff", function()
   if connections.is_connected() then
     api.find_files()
@@ -20,15 +21,12 @@ vim.keymap.set("n", "<leader>ff", function()
     builtin.find_files()
   end
 end, { desc = "Find Files (Root Dir)" })
-vim.keymap.set("n", "<leader>fg", function()
-  if connections.is_connected() then
-    api.live_grep()
-  else
-    builtin.live_grep()
-  end
-end, { desc = "Find Files (git-files)" })
 
 wk.add({
-  { "<leader>r", icon = "", group = "Remote connections" },
+  { "<leader>r", icon = "", group = "Remote connections" },
 })
---
+
+-- general
+vim.keymap.set("n", "<S-CR>", "m`o<Esc>``", { noremap = true, silent = true, desc = "Blank line below" })
+vim.keymap.set("n", "<C-CR>", "m`O<Esc>``", { noremap = true, silent = true, desc = "Blank line above" })
+vim.keymap.set("n", "<leader>bc", ":cd %:p:h<CR>", { desc = "cd to current buffer" })

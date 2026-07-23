@@ -1,8 +1,8 @@
 return {
-  -- add gruvbox
+  -- add catppuccin
   { "catppuccin" },
 
-  -- Configure LazyVim to load gruvbox
+  -- Configure LazyVim to load catppuccin
   {
     "LazyVim/LazyVim",
     opts = {
